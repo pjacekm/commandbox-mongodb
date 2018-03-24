@@ -1,6 +1,6 @@
 /**
 *
-* @author 
+* @author pjacekm@gmail.com
 * @description 
 *
 */
@@ -8,9 +8,6 @@
 component output="false" accessors="true" singleton {
 
 	// Injected properties (DI)
-	// property name="ModuleConfig" inject="commandbox:moduleConfig:commandbox-mongodb";
-	// property name="ModuleSettings" inject="commandbox:moduleSettings:commandbox-mongodb";
-	// property name="ModuleService" inject="ModuleService";
 	property name="Factory" inject="Factory@commandbox-mongodb";
 	property name="Config" inject="Config@commandbox-mongodb";
 	property name="Util" inject="Util@commandbox-mongodb";

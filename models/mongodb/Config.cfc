@@ -1,6 +1,6 @@
 /**
 *
-* @author 
+* @author pjacekm@gmail.com
 * @description Carries MongoDB connection information. By default loaded with data from ModuleConfig.
 *
 */

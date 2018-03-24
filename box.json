@@ -1,9 +1,9 @@
 {
     "name":"MongoDB Java driver wrapper for CommandBox",
-    "version":"1.0.0",
+    "version":"0.0.1",
     "author":"pjacekm@gmail.com",
-    "location":"",
-    "homepage":"",
+    "location":"https://github.com/pjacekm/commandbox-mongodb/archive/master.zip",
+    "homepage":"https://github.com/pjacekm/commandbox-mongodb",
     "documentation":"",
     "repository":{
         "type":"Git",

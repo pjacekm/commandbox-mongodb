@@ -1,6 +1,6 @@
 /**
 *
-* @author 
+* @author pjacekm@gmail.com
 * @description Uses JavaLoader to initialize MongoDB Java Driver classes. Given that all java classes must be delivered by the same JavaLoader instance (ClassLoader), this component should be instantiated as a singleton (see https://github.com/markmandel/JavaLoader/wiki/Switching-the-ThreadContextClassLoader)
 *
 */

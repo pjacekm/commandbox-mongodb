@@ -1,6 +1,6 @@
 /**
 *
-* @author 
+* @author pjacekm@gmail.com
 * @description 
 * Note that "contentType" and "aliases" fields are deprecated in GridFS: https://jira.mongodb.org/browse/JAVA-2517
 */

@@ -1,6 +1,6 @@
 /**
 *
-* @author 
+* @author pjacekm@gmail.com
 * @description Encapsulates MongoDB responses
 *
 */

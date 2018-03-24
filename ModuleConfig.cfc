@@ -1,7 +1,6 @@
 /**
 *
-* @file /modules/commandbox-mongodb/ModuleConfig.cfc
-* @author 
+* @author pjacekm@gmail.com
 * @description 
 *
 */
