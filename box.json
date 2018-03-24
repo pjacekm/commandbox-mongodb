@@ -1,0 +1,56 @@
+{
+    "name":"MongoDB Java driver wrapper for CommandBox",
+    "version":"1.0.0",
+    "author":"pjacekm@gmail.com",
+    "location":"",
+    "homepage":"",
+    "documentation":"",
+    "repository":{
+        "type":"Git",
+        "URL":"https://github.com/pjacekm/commandbox-mongodb.git"
+    },
+    "bugs":"https://github.com/pjacekm/commandbox-mongodb/issues",
+    "slug":"commandbox-mongodb",
+    "shortDescription":"MongoDB Java driver wrapper for CommandBox",
+    "description":"MongoDB Java driver wrapper for CommandBox",
+    "instructions":"",
+    "changelog":"",
+    "type":"commandbox-modules",
+    "keywords":[],
+    "private":false,
+    "projectURL":"",
+    "license":[
+        {
+            "type":"MIT",
+            "URL":"https://github.com/pjacekm/commandbox-mongodb/blob/master/LICENSE"
+        }
+    ],
+    "contributors":[],
+    "dependencies":{},
+    "devDependencies":{},
+    "installPaths":{},
+    "scripts":{},
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ],
+    "testbox":{
+        "runner":[
+            {
+                "default":""
+            }
+        ],
+        "labels":"",
+        "reporter":"",
+        "bundles":"",
+        "recurse":true,
+        "directory":"tests.specs",
+        "testBundles":"",
+        "testSuites":"",
+        "testSpecs":"",
+        "verbose":true,
+        "watchDelay":500,
+        "watchPaths":"**.cfc"
+    }
+}
