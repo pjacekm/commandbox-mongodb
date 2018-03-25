@@ -3,10 +3,11 @@
 
 ## Prerequisites
 - CommandBox v. 3.9+ 
-- MongoDB v. 3+
+- MongoDB v. 3+ (currently supported MongoDB Java driver version: 3.6.3)
+
 
 ## Note
-This is a "Work in Progress". At this stage, the project code is usable but documentation and tests need to be created. Project structure, class/method names and basically anything can change. Stay tuned :)
+"Work in Progress": at this stage the project code is usable but documentation and tests need to be created. Project structure, class/method names and basically anything can change. Stay tuned :)
 
 ## Installation
 
@@ -128,3 +129,7 @@ Example of the above in CommandBox [task](https://commandbox.ortusbooks.com/cont
 			print.text( JSONPrettyPrint.formatJSON(result) );
 		}
 	}
+
+
+## Credits
+This project uses Mark Mandel's Javaloader (http://javaloader.riaforge.org/)
