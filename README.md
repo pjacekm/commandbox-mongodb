@@ -7,7 +7,8 @@
 
 
 ## Note
-"Work in Progress": at this stage the project code is usable but documentation and tests need to be created. Project structure, class/method names and basically anything can change. Stay tuned :)
+"Work in Progress": at this stage the project code is usable but more documentation is needed.
+
 
 ## Installation
 
