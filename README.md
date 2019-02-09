@@ -3,11 +3,11 @@
 
 ## Prerequisites
 - CommandBox v. 3.9+ 
-- MongoDB v. 3+ (currently supported MongoDB Java driver version: 3.6.3)
+- MongoDB v. 3+ (currently supported MongoDB Java driver version: 3.8.1)
 
 
 ## Note
-"Work in Progress": at this stage the project code is usable but more documentation is needed.
+**"Work in Progress": the code is fairly complete, documentation is being prepared.**
 
 
 ## Installation
@@ -97,7 +97,7 @@ When initialized, the module will try to connect to specified database. Set defa
 
 
 ## Usage
-Commandbox-mongodb package structure and usage is loosely based on MongoDB's Java driver structure and usage. When in doubt, refer to [Java driver API docs](http://api.mongodb.com/java/current/).
+Commandbox-mongodb package structure and usage is loosely based on MongoDB Java driver. When in doubt, refer to [Java driver API docs](http://api.mongodb.com/java/current/). 
 
 In general, use the package in the following way:
 1. Use CommandBox Wirebox DI framework for instantiating the package. Entry point for all communication with MongoDB is the `MongoClient` class:
@@ -112,7 +112,7 @@ In general, use the package in the following way:
 
 		var myTestCollection=db.getCollection("testCollection");
 
-4. Issue your query, get the results as an array:
+4. Execute your query, get the results as an array:
 
 		var result=myTestCollection.find().toArray();
 
@@ -126,8 +126,12 @@ Example of the above in CommandBox [task](https://commandbox.ortusbooks.com/cont
 		function run(){
 			var db=MongoClient.getDatabase( "commandboxTestDb" );
 			var myTestCollection=db.getCollection( "testCollection" );
-			var result=myTestCollection.find( {"_id":{"$oid":"5917654b4420c216dd1bd0dd"}} ).toArray();
-			print.text( JSONPrettyPrint.formatJSON(result) );
+			var result=myTestCollection.find( 
+				{"_id":{"$oid":"5917654b4420c216dd1bd0dd"}} 
+			).toArray();
+			print.text( 
+				JSONPrettyPrint.formatJSON(result) 
+			);
 		}
 	}
 

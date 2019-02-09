@@ -13,6 +13,18 @@ component output="false" extends="MongoIterable" accessors="true" {
 
 
 
+	/**
+	* Sets the comment to the query
+	*/
+	public FindIterable function comment(required string comment) {
+		getMongoIterable().comment(
+			javacast("string", arguments.comment)
+		);
+		return this;
+	}
+
+
+
 
 	public FindIterable function filter(required struct filter) {
 		getMongoIterable().filter(

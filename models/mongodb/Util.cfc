@@ -23,7 +23,7 @@ component output="false" accessors="true" {
 
 	public void function printDumpToConsole(dumpData) {
 		getShell().printString(
-			dumpData
+			arguments.dumpData
 		);
 	}
 
@@ -43,13 +43,13 @@ component output="false" accessors="true" {
 			return arguments.data;
 		}
 		else if(isArray(arguments.data)){
-			var list = getFactory().getObject("java.util.ArrayList");
+			var javaArrayList = getFactory().getObject("java.util.ArrayList");
 
 			for(var i in arguments.data){
-				list.add(toBsonDocument(i));
+				javaArrayList.add(toBsonDocument(i));
 			}
 
-			return list;
+			return javaArrayList;
 			
 		}
 		else {
@@ -144,7 +144,7 @@ component output="false" accessors="true" {
 					break;
 				
 					default:
-						
+						throw(type = "commandbox-mongodb.unsupportedObjectTypeException", message = "Support for object '#getMetadata(nextResult).getCanonicalName()#' has not yet been implemented in commandbox-mongodb", detail="");
 					break;
 				}
 			}

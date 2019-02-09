@@ -7,7 +7,9 @@
 
 component output="false" extends="MongoIterable" accessors="true" {
 	public AggregateIterable function allowDiskUse(required boolean allowDiskUse) {
-		getMongoIterable().allowDiskUse(javacast("boolean", arguments.allowDiskUse));
+		getMongoIterable().allowDiskUse(
+			javacast("boolean", arguments.allowDiskUse)
+		);
 		return this;
 	}
 
@@ -15,7 +17,9 @@ component output="false" extends="MongoIterable" accessors="true" {
 
 
 	public AggregateIterable function batchSize(required numeric batchSize) {
-		getMongoIterable().batchSize(javacast("int", arguments.batchSize));
+		getMongoIterable().batchSize(
+			javacast("int", arguments.batchSize)
+		);
 		return this;
 	}
 
@@ -23,7 +27,21 @@ component output="false" extends="MongoIterable" accessors="true" {
 
 
 	public AggregateIterable function bypassDocumentValidation(required boolean bypassDocumentValidation) {
-		getMongoIterable().bypassDocumentValidation(javacast("boolean", arguments.bypassDocumentValidation));
+		getMongoIterable().bypassDocumentValidation(
+			javacast("boolean", arguments.bypassDocumentValidation)
+		);
+		return this;
+	}
+
+
+
+	/**
+	* Sets the comment to the aggregation
+	*/
+	public AggregateIterable function comment(required string comment) {
+		getMongoIterable().comment(
+			javacast("string", arguments.comment)
+		);
 		return this;
 	}
 
