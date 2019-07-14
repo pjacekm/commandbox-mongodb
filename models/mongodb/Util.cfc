@@ -77,7 +77,7 @@ component output="false" accessors="true" {
 		}
 		else {
 			var doc = getFactory().getObject("org.bson.Document");
-			return doc.parse(serializeJSON(arguments.data));
+			return doc.init(arguments.data);
 		}
 	}
 
