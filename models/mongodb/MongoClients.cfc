@@ -12,10 +12,11 @@ component output="false" accessors="true" singleton {
 	property name="Wirebox" inject="wirebox";
 
 	public function init(){
+
 		lock name="mongoClientsCache" type="exclusive" timeout=2 {
 			variables["mongoClientsCache"]={};
 		}
-
+		
 		return this;
 	}
 
@@ -24,14 +25,12 @@ component output="false" accessors="true" singleton {
 
 	public any function create(string connectionString="") {
 
-		/* var connectionStringHash=hash(arguments.connectionString);
+		var connectionStringHashed=hash(arguments.connectionString);
 
-		if(structKeyExists(variables["mongoClientsCache"], connectionStringHash)){
-			return variables["mongoClientsCache"][connectionStringHash];
-		}
-		else{
-			lock name='mongoClientsCache' type='exclusive' timeout=30 {
-				if(!structKeyExists(variables["mongoClientsCache"], connectionStringHash)){
+		if(!structKeyExists(variables["mongoClientsCache"], connectionStringHashed)){
+	
+			lock name="mongoClientsCache" type="exclusive" throwOnTimeout="true" timeout=30 {
+				if(!structKeyExists(variables["mongoClientsCache"], connectionStringHashed)){
 					var mongoClients=getFactory().getObject("com.mongodb.client.MongoClients");
 		
 					if(arguments.connectionString.len()){
@@ -43,35 +42,18 @@ component output="false" accessors="true" singleton {
 						var mongoClient=mongoClients.create();
 					}
 
-					var mongoClient=getWirebox().getInstance("MongoClient@commandbox-mongodb");
-					mongoClient.setMongoClient(mongoClient);
+					var mongoClientWrapper=getWirebox().getInstance("MongoClient@commandbox-mongodb");
+					mongoClientWrapper.setMongoClient(mongoClient);
 
-					variables["mongoClientsCache"][connectionStringHash]=mongoClient;
+					variables["mongoClientsCache"][connectionStringHashed]=mongoClientWrapper;
 				}
 				
 			}
 			
-			return variables["mongoClientsCache"][connectionStringHash];
-		} */
-
-
-
-
-		var mongoClients=getFactory().getObject("com.mongodb.client.MongoClients");
-		
-		if(arguments.connectionString.len()){
-			var mongoClient=mongoClients.create(
-				javacast("string", arguments.connectionString)
-			);
-		}
-		else {
-			var mongoClient=mongoClients.create();
+			
 		}
 
-		var mongoClientWrapper=getWirebox().getInstance("MongoClient@commandbox-mongodb");
-		mongoClientWrapper.setMongoClient(mongoClient);
-
-		return mongoClientWrapper;
+		return variables["mongoClientsCache"][connectionStringHashed];
 		
 	}
 }
