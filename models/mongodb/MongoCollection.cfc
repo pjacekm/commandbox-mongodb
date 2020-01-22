@@ -283,10 +283,10 @@ component output="false" accessors="true" {
 
 
 	public struct function findOneAndReplace(struct filter={}, struct replacement={}, struct options={}) {
-		var filter=getUtil().toBsonDocument(arguments.filter);
+		var filter=getUtil().toDocument(arguments.filter);
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var findOneAndReplaceOptions=factory.getObject("com.mongodb.client.model.FindOneAndReplaceOptions");
-		var replaceDocument=getUtil().toBsonDocument(arguments.replacement);
+		var replaceDocument=getUtil().toDocument(arguments.replacement);
 
 		for(var i in arguments.options){
 			switch(i){
@@ -339,10 +339,10 @@ component output="false" accessors="true" {
 
 
 	public struct function findOneAndUpdate(struct filter={}, struct update={}, struct options={}) {
-		var filter=getUtil().toBsonDocument(arguments.filter);
+		var filter=getUtil().toDocument(arguments.filter);
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var findOneAndUpdateOptions=factory.getObject("com.mongodb.client.model.FindOneAndUpdateOptions");
-		var updateDocument=getUtil().toBsonDocument(arguments.update);
+		var updateDocument=getUtil().toDocument(arguments.update);
 
 		for(var i in arguments.options){
 			switch(i){
@@ -539,8 +539,8 @@ component output="false" accessors="true" {
 	public UpdateResult function updateMany(struct filter={}, struct replacement={}, struct options={}) {
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var updateOptions=factory.getObject("com.mongodb.client.model.UpdateOptions");
-		var filter=getUtil().toBsonDocument(arguments.filter);
-		var replaceDocument=getUtil().toBsonDocument(arguments.replacement);
+		var filter=getUtil().toDocument(arguments.filter);
+		var replaceDocument=getUtil().toDocument(arguments.replacement);
 		var updateResult=wirebox.getInstance("UpdateResult@commandbox-mongodb");
 
 		for(var i in arguments.options){
