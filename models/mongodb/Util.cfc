@@ -84,8 +84,13 @@ component output="false" accessors="true" {
 
 
 
-	public any function ObjectId(required string _id) {
-		return getFactory().getObject("org.bson.types.ObjectId").init(arguments._id);
+	public any function ObjectId(string _id="") {
+		if(len(arguments._id)){
+			return getFactory().getObject("org.bson.types.ObjectId").init(arguments._id);
+		}
+		else{
+			return getFactory().getObject("org.bson.types.ObjectId").init();
+		}
 	}
 
 
