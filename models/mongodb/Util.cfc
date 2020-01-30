@@ -61,6 +61,12 @@ component output="false" accessors="true" {
 
 
 
+	/**
+	 * Converts CF to MongoDB Document.
+	 * You're in charge of the datatypes! (e.g. ObjectId)
+	 *
+	 * @data CF data to be converted, usually a struct or array.
+	 */
 	function toDocument(required any data){
 		if(isObject(arguments.data)){
 			return arguments.data;

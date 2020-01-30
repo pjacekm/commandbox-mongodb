@@ -15,7 +15,7 @@
     "description":"MongoDB Java driver wrapper for CommandBox",
     "instructions":"",
     "changelog":"",
-    "type":"modules",
+    "type":"commandbox-modules",
     "keywords":[],
     "private":false,
     "projectURL":"",
