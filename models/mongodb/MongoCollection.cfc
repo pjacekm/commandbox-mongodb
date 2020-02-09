@@ -25,7 +25,7 @@ component output="false" accessors="true" {
 	public AggregateIterable function aggregate(required array pipeline) {
 		var aggregateIterable=wirebox.getInstance("AggregateIterable@commandbox-mongodb");
 
-		var filter=getUtil().toBsonDocument(arguments.pipeline);
+		var filter=getUtil().toDocument(arguments.pipeline);
 		var result=getMongoCollection().aggregate(filter);
 
 		aggregateIterable.setMongoIterable(result);
@@ -45,7 +45,7 @@ component output="false" accessors="true" {
 
 
 	public numeric function count(struct query={}) {
-		var filter=getUtil().toBsonDocument(arguments.query);
+		var filter=getUtil().toDocument(arguments.query);
 		return getMongoCollection().count(filter);
 	}
 
@@ -53,7 +53,7 @@ component output="false" accessors="true" {
 
 
 	public string function createIndex(required struct keys, struct options={}) {
-		var keysObj=getUtil().toBsonDocument(arguments.keys);
+		var keysObj=getUtil().toDocument(arguments.keys);
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var indexOptions=factory.getObject("com.mongodb.client.model.IndexOptions");
 
@@ -160,7 +160,7 @@ component output="false" accessors="true" {
 	public DeleteResult function deleteMany(struct filter={}) {
 		var deleteResult=wirebox.getInstance("DeleteResult@commandbox-mongodb");
 
-		var query=getUtil().toBsonDocument(arguments.filter);
+		var query=getUtil().toDocument(arguments.filter);
 		var result=getMongoCollection().deleteMany(query);
 
 		deleteResult.setMongoDeleteResult(result);
@@ -174,7 +174,7 @@ component output="false" accessors="true" {
 	public DeleteResult function deleteOne(struct filter={}) {
 		var deleteResult=wirebox.getInstance("DeleteResult@commandbox-mongodb");
 
-		var query=getUtil().toBsonDocument(arguments.filter);
+		var query=getUtil().toDocument(arguments.filter);
 		var result=getMongoCollection().deleteMany(query);
 
 		deleteResult.setMongoDeleteResult(result);
@@ -188,7 +188,7 @@ component output="false" accessors="true" {
 	public DistinctIterable function distinct(required string fieldName, struct filter={}) {
 		var distinctIterable=wirebox.getInstance("DistinctIterable@commandbox-mongodb");
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
-		var query=getUtil().toBsonDocument(arguments.filter);
+		var query=getUtil().toDocument(arguments.filter);
 
 		var result=getMongoCollection().distinct(
 			javacast("string", arguments.fieldName), 
@@ -230,7 +230,7 @@ component output="false" accessors="true" {
 	public FindIterable function find(struct filter={}) {
 		var findIterable=wirebox.getInstance("FindIterable@commandbox-mongodb");
 
-		var query=getUtil().toBsonDocument(arguments.filter);
+		var query=getUtil().toDocument(arguments.filter);
 		var result=getMongoCollection().find(query);
 
 		findIterable.setMongoIterable(result);
@@ -242,7 +242,7 @@ component output="false" accessors="true" {
 
 
 	public struct function findOneAndDelete(struct filter={}, struct options={}) {
-		var filter=getUtil().toBsonDocument(arguments.filter);
+		var filter=getUtil().toDocument(arguments.filter);
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var findOneAndDeleteOptions=factory.getObject("com.mongodb.client.model.FindOneAndDeleteOptions");
 
@@ -502,8 +502,8 @@ component output="false" accessors="true" {
 	public UpdateResult function replaceOne(struct filter={}, struct replacement={}, struct options={}) {
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var updateOptions=factory.getObject("com.mongodb.client.model.UpdateOptions");
-		var filter=getUtil().toBsonDocument(arguments.filter);
-		var replaceDocument=getUtil().toBsonDocument(arguments.replacement);
+		var filter=getUtil().toDocument(arguments.filter);
+		var replaceDocument=getUtil().toDocument(arguments.replacement);
 		var updateResult=wirebox.getInstance("UpdateResult@commandbox-mongodb");
 
 		for(var i in arguments.options){
@@ -576,8 +576,8 @@ component output="false" accessors="true" {
 	public UpdateResult function updateOne(struct filter={}, struct replacement={}, struct options={}) {
 		var factory=wirebox.getInstance("Factory@commandbox-mongodb");
 		var updateOptions=factory.getObject("com.mongodb.client.model.UpdateOptions");
-		var filter=getUtil().toBsonDocument(arguments.filter);
-		var replaceDocument=getUtil().toBsonDocument(arguments.replacement);
+		var filter=getUtil().toDocument(arguments.filter);
+		var replaceDocument=getUtil().toDocument(arguments.replacement);
 		var updateResult=wirebox.getInstance("UpdateResult@commandbox-mongodb");
 
 		for(var i in arguments.options){
@@ -605,5 +605,12 @@ component output="false" accessors="true" {
 		updateResult.setUpdateResult(result);
 
 		return updateResult;
+	}
+
+
+
+
+	public any function watch(array pipeline=[]) {
+		return getMongoCollection().watch();
 	}
 }
