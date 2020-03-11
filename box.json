@@ -1,6 +1,6 @@
 {
     "name":"MongoDB connectivity package for CommandBox",
-    "version":"2.0.3-alpha",
+    "version":"2.0.4-alpha",
     "author":"pjacekm@gmail.com",
     "location":"https://github.com/pjacekm/commandbox-mongodb/archive/master.zip",
     "homepage":"https://github.com/pjacekm/commandbox-mongodb",
