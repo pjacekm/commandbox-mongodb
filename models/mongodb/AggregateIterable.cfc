@@ -65,4 +65,12 @@ component output="false" extends="MongoIterable" accessors="true" {
 		getMongoIterable().useCursor(javacast("boolean", arguments.useCursor));
 		return this;
 	}
+
+
+
+
+	public AggregateIterable function collation(required Collation collation) {
+		getMongoIterable().collation(arguments.collation.build());
+		return this;
+	}
 }
