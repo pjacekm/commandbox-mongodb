@@ -1,6 +1,11 @@
 # MongoDB connectivity package for CommandBox
 [MongoDB](https://www.mongodb.com/) [Java driver](http://mongodb.github.io/mongo-java-driver/) wrapper for [CommandBox](https://www.ortussolutions.com/products/commandbox). Supports querying, aggregation, map-reduce, GridFS and geospatial queries. This is a CommandBox module - use it in your CommandBox commands, modules or tasks.
 
+## No longer under active development
+
+**This repository is no longer maintained or actively developed.**
+
+
 ## Prerequisites
 - CommandBox v. 3.9+ 
 - MongoDB v. 3+ (currently supported MongoDB Java driver version: 3.6.3)
